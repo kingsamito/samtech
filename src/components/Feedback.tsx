@@ -20,17 +20,24 @@ const Feedback = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         nextArrow: <Arrow />,
         prevArrow: <Arrow />
     };
 
+    // const slideShowScreen = () => {
+    //     if (screen == 320px) {
+    //         slidesToShow = 1;
+    //     }
+    // }
+
+
     return (
-        <div className=' p-[100px]'>
-            <h1 className='font-semibold text-[30px] text-center mb-[30px]'>What they say about SamTech</h1>
-            <p className='font-thin text-[30px] text-center mb-[30px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div className='px-10 my-28'>
+            <h1 className='font-semibold text-[25px] md:text-[30px] text-center mb-[30px]'>What they say about SamTech</h1>
+            <p className='font-thin text-[25px] md:text-[30px] text-center mb-[30px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
             <Slider {...settings}>
                 {review.map((review, key) => (

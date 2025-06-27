@@ -7,18 +7,18 @@ const Instructor = () => {
     return (
         <div>
             <div className='bg-[#fdf8ee69]  py-[100px] pb-[250px]'>
-                <div className='flex 2xl:w-[65%] w-[85%] m-auto gap-4'>
-                    <div className='bg-gradient-to-r from-[#CC522B] to-[#FF6636] flex w-1/2 pl-5 items-center'>
-                        <div className='text-white w-[65%] flex flex-col gap-1'>
+                <div className='flex flex-col md:flex-row w-[85%] m-auto gap-8'>
+                    <div className='bg-gradient-to-r from-[#CC522B] to-[#FF6636] flex md:w-1/2 pl-5 py-5 items-center'>
+                        <div className='text-white md:w-[65%] flex flex-col gap-1'>
                             <h1 className='font-semibold text-[32px]'>Become an instructor</h1>
                             <p>Instructors from around the world teach millions of students on Udemy. We provide the tools and skills to teach what you love.</p>
-                            <button className='bg-white text-[#FF6636] py-3 px-6 flex items-center font-semibold text-[16px] gap-2 w-fit'>Start Teaching <img src={orangeArrow} className='' /></button>
+                            <button className='bg-white text-[#FF6636] py-3 px-6 my-5 flex items-center font-semibold text-[16px] gap-2 w-fit hover:bg-gray-100'>Start Teaching <img src={orangeArrow} className='' /></button>
                         </div>
-                        <img src={require("../assets/img/Become an Instructor.png")} className='2xl:h-[230px] h-[200px]' />
+                        <img src={require("../assets/img/Become an Instructor.png")} className='2xl:h-[230px] h-[200px] hidden lg:inline' />
                     </div>
-                    <div className='bg-white w-1/2 p-5 flex flex-col justify-center gap-5'>
-                        <h1 className='font-semibold text-[32px]'>Your teaching & earning steps</h1>
-                        <div className='grid grid-cols-2 gap-5'>
+                    <div className='bg-white p-5 flex flex-col justify-center gap-5'>
+                        <h1 className='font-semibold text-[25px] md:text-[32px]'>Your teaching & earning steps</h1>
+                        <div className='grid md:grid-cols-2 gap-5'>
                             <div className='flex items-center gap-4'>
                                 <img src={require("../assets/img/Number1.png")} className='h-[30px]' />
                                 <p>Apply to become instructor</p>
@@ -39,9 +39,9 @@ const Instructor = () => {
                     </div>
                 </div>
             </div>
-            <div className='w-[85%] mx-auto mt-[-200px] 2xl:p-[100px] p-[50px] border bg-white'>
-                <h1 className='font-semibold text-[40px] text-center'>Top instructors</h1>
-                <div className='grid 2xl:grid-cols-5 grid-cols-4 gap-5'>
+            <div className='w-[90%] mx-auto mt-[-200px] p-[50px] border bg-white'>
+                <h1 className='font-semibold text-[30px] md:text-[40px] text-center mb-8'>Top instructors</h1>
+                <div className='grid lg:grid-cols-4 md:grid-cols-3 gap-5'>
                     {instructor.map((instructor, key) => (
                         <div>
                             <img src={instructor.img} alt={instructor.img} className='w-full' />

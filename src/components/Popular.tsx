@@ -20,7 +20,7 @@ const Popular = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         nextArrow: <Arrow />,
@@ -45,7 +45,7 @@ const Popular = () => {
     const handleScrollLeft = () => {
         if (videoListRef.current) {
             videoListRef.current.scrollBy({
-                left: -360,
+                left: -180,
                 behavior: 'smooth',
             });
             setScrollX(scrollX - 360);
@@ -55,7 +55,7 @@ const Popular = () => {
     const handleScrollRight = () => {
         if (videoListRef.current) {
             videoListRef.current.scrollBy({
-                left: 360,
+                left: 180,
                 behavior: 'smooth',
             });
             setScrollX(scrollX + 360);
@@ -63,8 +63,8 @@ const Popular = () => {
     };
 
     return (
-        <div className='bg-[#F5F7FA] p-[100px] relative'>
-            <h1 className='font-semibold text-[40px] text-center mb-[30px]'>Popular Courses</h1>
+        <div className='bg-[#F5F7FA] px-10 py-10 relative'>
+            <h1 className='font-semibold text-[30px] lg:text-[40px] text-center mb-[30px]'>Popular Courses</h1>
             <div className='flex overflow-auto gap-5 no-scrollbar' ref={videoListRef}>
                 <button
                     style={{ position: 'absolute', top: '50%', left: '5px', transform: 'translateY(-50%)' }}
