@@ -1,27 +1,20 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Collaboration from './components/Collaboration'
-import Membership from './components/Membership'
-import Footer from './components/Footer'
-import Popular from './components/Popular'
-import Feedback from './components/Feedback'
-import Instructor from './components/Instructor'
-import Newsletter from './components/Newsletter'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Explore from './pages/Explore';
 
 const App = () => {
   return (
-    <>
-    <Navbar />
-    <Hero />
-    <Collaboration />
-    <Membership />
-    <Popular />
-    <Feedback />
-    <Instructor /> 
-    <Newsletter />
-    <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path ="/" element={<Home />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/explore" element={<Explore />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

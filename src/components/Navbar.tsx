@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import { Link } from 'react-router-dom';
 import Menu from '../assets/img/menu_icon.png';
 import Close from '../assets/img/close_icon.png';
 
@@ -38,8 +39,12 @@ const Navbar = () => {
             </ul>
           </div>
           <div className='flex flex-col gap-[25px] text-[#1D1D1D] font-semibold text-[17px] mt-10'>
-            <button className=' border border-black py-[10px] bg-white px-[16px] rounded-lg button-hover'>Sign In</button>
-            <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
+            <Link to ="/signin">
+              <button className=' border border-black py-[10px] bg-white px-[16px] rounded-lg button-hover'>Sign In</button>
+            </Link>
+            <Link to ="/signup">
+              <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -55,8 +60,12 @@ const Navbar = () => {
           <li className='list-hover'><a href="/contact">Contact</a></li>
         </ul>
         <div className='flex gap-[25px] text-[#1D1D1D] font-semibold lg:text-[20px]'>
-          <button className=' border border-black py-[10px] px-[16px] rounded-lg button-hover'>Sign In</button>
-          <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
+          <Link to ="/signin">
+            <button className=' border border-black py-[10px] px-[16px] rounded-lg button-hover'>Sign In</button>
+          </Link>
+          <Link to ="/signup">
+            <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
+          </Link>
         </div>
       </div>
     </nav>
