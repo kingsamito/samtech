@@ -1,17 +1,20 @@
 import React from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Partnership from './components/Section'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Explore from './pages/Explore';
 
 const App = () => {
   return (
-    <>
-    <Navbar />
-    <Hero />
-    <Partnership />
-    <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path ="/" element={<Home />} />
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/explore" element={<Explore />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
