@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { review } from '../data/data'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion, Variants } from 'framer-motion';
 
 function Arrow(props: any) {
     const { className, style, onClick } = props;
@@ -15,8 +16,17 @@ function Arrow(props: any) {
     );
 }
 
+const fadeUp: Variants = {
+        hidden: { opacity: 0, y: 40 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" },
+        },
+    };
+
 const Feedback = () => {
-     var settings = {
+    var settings = {
         dots: true,
         infinite: true,
         speed: 500,
@@ -36,8 +46,8 @@ const Feedback = () => {
 
     return (
         <div className='px-10 my-28'>
-            <h1 className='font-semibold text-[25px] md:text-[30px] text-center mb-[30px]'>What they say about SamTech</h1>
-            <p className='font-thin text-[25px] md:text-[30px] text-center mb-[30px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <motion.h1 className='font-semibold text-[25px] md:text-[30px] text-center mb-[30px]'initial="hidden" whileInView="visible" variants={fadeUp}>What they say about SamTech</motion.h1>
+            <motion.p className='font-thin text-[25px] md:text-[30px] text-center mb-[30px]' initial="hidden" whileInView="visible" variants={fadeUp}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</motion.p>
 
             <Slider {...settings}>
                 {review.map((review, key) => (
