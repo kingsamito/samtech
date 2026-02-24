@@ -8,7 +8,8 @@
     }
 
     .list-hover:hover {
-      color: #FF6636;;
+      color: #FF6636;
+      color:#f1c5b7
     }
 
     .button-hover:hover {
@@ -16,7 +17,12 @@
     }
 
     .icon-hover:hover {
-      color: #FF6636
+      color: #FF6636;
+      cursor: pointer;
+    }
+
+    .span {
+      color: #FF6636;
     }
 }
 

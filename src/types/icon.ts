@@ -1,0 +1,1 @@
+export type IconKey = "development" | "business" | "finance" | "IT" | "office" | "personal" |"design";

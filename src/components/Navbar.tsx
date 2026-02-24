@@ -1,7 +1,8 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from '../assets/img/menu_icon.png';
 import Close from '../assets/img/close_icon.png';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,8 +11,25 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   }
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
-    <nav className='flex items-center justify-between py-[20px] font-[Roboto] px-10'>
+    <motion.nav 
+      className='flex items-center justify-between py-[20px] font-[Roboto] px-10 fixed top-0 left-0 w-full z-50' 
+      initial={false} 
+      animate={{backgroundColor: scrolled ? "#ffffff" : "rgba(255,255,255,0)", boxShadow: scrolled ? "0 4px 20px rgba(0,0,0,0.08)" : "0 0px 0px rgba(0,0,0,0)",}}
+      transition={{ duration: 0.3 }}
+    >
 
       {/* Mobile screen view */}
       <div className='mobile-view-navbar md:hidden w-full'>
@@ -33,16 +51,16 @@ const Navbar = () => {
             <ul className='flex flex-col gap-[20px] text-white text-center font-semibold text-[18px]'>
               <li className='list-hover'><a href="/">Home</a></li>
               <li className='list-hover'><a href="/about">About</a></li>
-              <li className='list-hover'><a href="/contact">Courses</a></li>
+              <li className='list-hover'><a href="/explore">Courses</a></li>
               <li className='list-hover'><a href="/contact">Faq</a></li>
               <li className='list-hover'><a href="/contact">Contact</a></li>
             </ul>
           </div>
           <div className='flex flex-col gap-[25px] text-[#1D1D1D] font-semibold text-[17px] mt-10'>
-            <Link to ="/signin">
+            <Link to="/signin">
               <button className=' border border-black py-[10px] bg-white px-[16px] rounded-lg button-hover'>Sign In</button>
             </Link>
-            <Link to ="/signup">
+            <Link to="/signup">
               <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
             </Link>
           </div>
@@ -55,20 +73,20 @@ const Navbar = () => {
         <ul className='flex md:gap-[30px] lg:gap-[60px] text-[#1D1D1D] font-semibold lg:text-[20px]'>
           <li className='list-hover'><a href="/">Home</a></li>
           <li className='list-hover'><a href="/about">About</a></li>
-          <li className='list-hover'><a href="/contact">Courses</a></li>
-          <li className='list-hover'><a href="/contact">Faq</a></li>
+          <li className='list-hover'><a href="/explore">Courses</a></li>
+          <li className='list-hover'><a href="/faq">Faq</a></li>
           <li className='list-hover'><a href="/contact">Contact</a></li>
         </ul>
         <div className='flex gap-[25px] text-[#1D1D1D] font-semibold lg:text-[20px]'>
-          <Link to ="/signin">
+          <Link to="/signin">
             <button className=' border border-black py-[10px] px-[16px] rounded-lg button-hover'>Sign In</button>
           </Link>
-          <Link to ="/signup">
+          <Link to="/signup">
             <button className='bg-black text-white rounded-lg py-[10px] px-[16px] button-hover'>Sign Up</button>
           </Link>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }
 
